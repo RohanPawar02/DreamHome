@@ -1,12 +1,12 @@
 import axios from 'axios';
 export const LOGIN_USER_KEY = 'HOME_LOGIN_USER_KEY';
 
-var baseURL;
-if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT === 'PRODUCTION') {
-    baseURL = process.env.REACT_APP_API_BASE_URL;
-} else {
-    baseURL = 'http://127.0.0.1:8000';
-}
+// var baseURL;
+// if (process.env.REACT_APP_ENVIRONMENT && process.env.REACT_APP_ENVIRONMENT === 'PRODUCTION') {
+//     baseURL = process.env.REACT_APP_API_BASE_URL;
+// } else {
+baseURL = 'https://dreamhouse-backend.herokuapp.com/';
+// }
 
 const api = axios.create({
     baseURL: baseURL,
@@ -34,9 +34,9 @@ api.interceptors.request.use(
 export default class API {
     // POST API
 
-    sellrequest = async (data) => {
+    sellrequest = async data => {
         console.log('connected to API');
-        
+
         const savedPost = await api
             .post(
                 '/sellrequest/add/',
