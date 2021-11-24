@@ -8,7 +8,7 @@ export const fetchTags = () => {
         return api
             .getTags()
             .then(tags => {
-                dispatch(fetchTagsAction(tags['results']));
+                dispatch(fetchTagsAction(tags));
             })
             .catch(error => {
                 alert('Failed to connect API: /tags/');

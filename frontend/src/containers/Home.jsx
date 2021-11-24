@@ -37,7 +37,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(fetchTags());
     }, []);
-
+    console.log('Tag', tags);
     return (
         <>
             <MainImage />
@@ -46,7 +46,12 @@ const Home = () => {
                     Whether you're buying, selling or renting, <br />
                     we can help you move forward.
                 </h4>
-                <ul class="icons">{tags && tags.map(tag => <CategoryCard tag={tag} />)}</ul>
+                <ul class="icons">
+                    {tags &&
+                        tags.map(tag => {
+                            return <CategoryCard tag={tag} />;
+                        })}
+                </ul>
             </section>
             <section class="explore">
                 <div>
