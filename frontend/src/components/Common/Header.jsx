@@ -29,7 +29,7 @@ export default function Header() {
                 <Find />
                 <div class="drop-down" onClick={() => setShowOption(true)}>
                     <img src={ImgUseIcon} alt="" />
-                    {checkUser && <button>{user.user_name} v</button>}
+                    {checkUser && <button>{user.user_name}</button>}
                 </div>
             </nav>
             {showOption && <Option setShowOption={setShowOption} />}

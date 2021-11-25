@@ -29,7 +29,7 @@ const Find = () => {
             {showSearchBar && (
                 <div class="search">
                     <img onClick={() => submitAction(search)} src={ImgSearchIcon} alt="" />
-                    <input type="text" onChange={inputFind} name="" placeholder="Search" id="search" />
+                    <input type="text" onChange={inputFind} name="" placeholder="Address, city or state" id="search" autocomplete="false"/>
                 </div>
             )}
         </div>

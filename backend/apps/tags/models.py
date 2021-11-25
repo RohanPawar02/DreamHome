@@ -19,6 +19,10 @@ class Tag(models.Model):
         'Description',blank=True, null=True, max_length= 100
     )
 
+    type = models.CharField(
+        'Type', blank=False, null=True, max_length=50, db_index=True
+    )
+
     created_at = models.DateTimeField(
         'Created Datetime', blank=True, auto_now_add=True
     )

@@ -16,7 +16,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
     const homes = getHomes(selector);
-    const key = localStorage.getItem(LOGIN_USER_KEY);
+    const key = localStorage.getItem('HOME_LOGIN_USER_KEY');
     const history = useHistory();
     useEffect(() => {
         dispatch(clearHomes());
@@ -24,20 +24,17 @@ const Home = () => {
     }, []);
     const tags = getTags(selector);
     const clickHome = homeId => {
-        dispatch(history.push(`/preview/${homeId}/`));
-        // dispatch(push('/preview/' + homeId + '/'));
-
-        // if (key) {
-        //     dispatch(push('/preview/' + homeId + '/'));
-        // } else {
-        //     dispatch(push('/signup'));
-        // }
+        if (key) {
+            dispatch(history.push(`/preview/${homeId}/`));
+        } else {
+            dispatch(push('/signup'));
+        }
     };
 
     useEffect(() => {
         dispatch(fetchTags());
     }, []);
-    console.log('Tag', tags);
+
     return (
         <>
             <MainImage />
@@ -46,16 +43,11 @@ const Home = () => {
                     Whether you're buying, selling or renting, <br />
                     we can help you move forward.
                 </h4>
-                <ul class="icons">
-                    {tags &&
-                        tags.map(tag => {
-                            return <CategoryCard tag={tag} />;
-                        })}
-                </ul>
+                <ul class="icons">{tags && tags.map(tag => <CategoryCard tag={tag} />)}</ul>
             </section>
             <section class="explore">
                 <div>
-                    <h4>Explore home on Dream house</h4>
+                    <h4>Explore homes on Dream House</h4>
                 </div>
                 <div class="images">
                     <ul class="column">
@@ -68,7 +60,7 @@ const Home = () => {
                                             <h1>{home.address}</h1>
                                         </div>
                                         <button id="vh" onClick={() => clickHome(home.id)}>
-                                            View homes
+                                            View more
                                         </button>
                                     </li>
                                 ))}

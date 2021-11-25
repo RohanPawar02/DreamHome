@@ -25,7 +25,7 @@ const Router = () => {
     return (
         <>
             <Switch>
-                <Route exact path={'/'} component={token ? Home : Signin} />
+                <Route exact path={'/'} component={Home} />
                 <Route exact path={'/search'} component={token ? Search : Signin} />
                 <Route exact path={'/saved'} component={token ? Saved : Signin} />
                 <Route exact path={'/signin'} component={Signin} />

@@ -20,7 +20,7 @@ const Saved = () => {
             {console.log(saved)}
             <section class="buy">
                 <div class="head">
-                    <h4>House for Sale Near me</h4>
+                    <h4>Favorites</h4>
                     <ul class="images">
                         {saved &&
                             saved.map(save => (

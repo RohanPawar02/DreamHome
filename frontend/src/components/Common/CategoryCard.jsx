@@ -1,21 +1,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { push } from 'connected-react-router';
-import SignUp from '../../containers/SignUp';
 
 export default function CategoryCard({ tag }) {
     const dispatch = useDispatch();
-    // const key = localStorage.getItem('LOGIN_USER_KEY');
+    const key = localStorage.getItem('HOME_LOGIN_USER_KEY');
     const pushTotag = tagId => {
-        // if (key) {
-        if (tagId == 2) {
-            dispatch(push('/sale'));
+        if (key) {
+            if (tag.type == 'Sell') {
+                dispatch(push('/sale'));
+            } else {
+                dispatch(push(`/search?tag_id=${tagId}&tag_type=${tag.type}`));
+            }
         } else {
-            dispatch(push('/search?tag_id=' + tagId));
+            dispatch(push('/signup'));
         }
-        // } else {
-        //     dispatch(push('/signup'));
-        // }
     };
 
     return (

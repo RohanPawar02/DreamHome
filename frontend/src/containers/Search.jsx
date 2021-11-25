@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import queryString from 'query-string';
 import { fetchHomes, clearHomes } from '../reducks/homes/operations';
 import { getHomes } from '../reducks/homes/selectors';
+import { getTags } from '../reducks/tags/selectors';
 import HomesCard from '../components/Common/HomesCard';
 import Header from '../components/Common/Header';
 
@@ -13,6 +14,7 @@ const Search = () => {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
     const homes = getHomes(selector);
+    const tags = getTags(selector);
 
     useEffect(() => {
         if (parsed.search !== undefined) {
@@ -34,7 +36,7 @@ const Search = () => {
         <>
             <section class="buy">
                 <div class="head">
-                    <h4>House for Sale Near me</h4>
+                    {<h4>House for {parsed.tag_type ? parsed.tag_type : ''} Near me</h4>}
                     <ul class="images">
                         {homes.map(home => (
                             <HomesCard home={home} />

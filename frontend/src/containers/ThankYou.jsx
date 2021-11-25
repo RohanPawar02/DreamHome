@@ -11,13 +11,11 @@ function ThankYou() {
                 <SaleImage />
                 <article class="thankyou">
                     <h1>Thank you for the Details</h1>
-                    <h4>
-                        Thank you for your details. We received your request. <br />
-                        Our stuff will be contacting with you to tell next steps.
+                    <h4><br />
+                        We have received your request. <br />
+                        Our staff will contact you once we have processed your request.
                     </h4>
-                    <a href="/">
-                        <button>Back to Home</button>
-                    </a>
+                        <button className="thankyou-button" onClick={() => dispatch(push('/'))}>Back to Home</button>
                 </article>
             </section>
         </>

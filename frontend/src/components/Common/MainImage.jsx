@@ -20,17 +20,16 @@ function MainImage() {
             <section class="main">
                 <img class="background" src={ImageBackgroundMain} alt="" />
                 <div class="search">
-                    <img onClick={() => submitAction(search)} src={ImgSearchIcon} alt="" />
-                    <input onChange={inputFind} type="text" name="" placeholder="Search" id="search" />
+                    <img id="search-mag" onClick={() => submitAction(search)} src={ImgSearchIcon} alt="" />
+                    <input onChange={inputFind} type="text" name="" placeholder="Address, city or state" id="search" />
                 </div>
                 <article class="text">
                     <h1>
-                        Discover a place <br />
-                        you'll love to live
+                        Find the perfect home
                     </h1>
                     <h4>
-                        Check out the latest homes <br />
-                        based on your personal preferences
+                        We have the most complete source of homes <br />
+                        for sale & real estate to help you move
                     </h4>
                 </article>
             </section>

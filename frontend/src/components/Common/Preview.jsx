@@ -67,17 +67,17 @@ function Preview() {
                 {home && (
                     <table>
                         <tr class="table-head">
-                            <th>{home.state}</th>
+                            <th>{home.address}</th>
                             <td>${home.price}</td>
                         </tr>
                         <tr>
-                            <th>{home.address}</th>
+                            <th>{home.state}</th>
                             <td>Est. mortgage ${home.rent_price}/mo*</td>
                         </tr>
                         <tr>
                             <th></th>
                             <td>
-                                <button class="gc">
+                                <button className="gc">
                                     {' '}
                                     <a href="/">Get Contact</a>
                                 </button>

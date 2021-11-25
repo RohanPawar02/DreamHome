@@ -9,9 +9,9 @@ import { push } from 'connected-react-router';
 function Option({ setShowOption }) {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
-    const key = localStorage.getItem('LOGIN_USER_KEY');
+    const key = localStorage.getItem('HOME_LOGIN_USER_KEY');
     const [checkUser, setCheckUser] = useState(false);
-    const user = JSON.parse(localStorage.getItem('LOGIN_USER_KEY'));
+    const user = JSON.parse(localStorage.getItem('HOME_LOGIN_USER_KEY'));
 
     const signOutButton = () => {
         dispatch(signOut());
@@ -34,12 +34,12 @@ function Option({ setShowOption }) {
                             {checkUser && <p>{user.user_name}</p>}
                         </li>
                         <li onClick={() => dispatch(push('/saved'))} class="first">
-                            Saved house
+                            Favorites
                         </li>
-                        <li onClick={() => dispatch(push('/search?tag_id=10'))}>Buy a house</li>
-                        <li onClick={() => dispatch(push('/sale'))}>Sell a house</li>
-                        <li onClick={() => dispatch(push('/search?tag_id=8'))} class="first">
-                            Rent a house
+                        <li onClick={() => dispatch(push('/search?tag_id=9'))}>Buy</li>
+                        <li onClick={() => dispatch(push('/sale'))}>Sell</li>
+                        <li onClick={() => dispatch(push('/search?tag_id=7'))} class="first">
+                            Rent
                         </li>
                         <li onClick={signOutButton}>Log Out</li>
                     </ul>
