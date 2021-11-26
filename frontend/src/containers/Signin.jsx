@@ -5,7 +5,6 @@ import ImgLogoIcon from '../assets/img/icon-logo.svg';
 import ImgCloseIcon from '../assets/img/icon-close.svg';
 import MainImage from '../components/Common/MainImage';
 import { push } from 'connected-react-router';
-import Header from '../components/Common/Header';
 
 function Signin() {
     const dispatch = useDispatch();

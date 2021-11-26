@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import ImgUseIcon from '../../assets/img/icon-user.svg';
 import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { signOut } from '../../reducks/users/operations';
-import { getUser } from '../../reducks/users/selectors';
 import { push } from 'connected-react-router';
 
 function Option({ setShowOption, tag }) {
     const dispatch = useDispatch();
-    const selector = useSelector(state => state);
     const key = localStorage.getItem('HOME_LOGIN_USER_KEY');
     const [checkUser, setCheckUser] = useState(false);
     const user = JSON.parse(localStorage.getItem('HOME_LOGIN_USER_KEY'));

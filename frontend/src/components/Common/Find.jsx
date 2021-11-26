@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import ImgSearchIcon from '../../assets/img/icon-search.svg';
 import { push } from 'connected-react-router';
-import { Component } from 'react';
 
 const Find = () => {
     const [showSearchBar, setSearchBar] = useState(false);

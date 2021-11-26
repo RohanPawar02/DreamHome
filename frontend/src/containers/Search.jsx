@@ -5,7 +5,6 @@ import { fetchHomes, clearHomes } from '../reducks/homes/operations';
 import { getHomes } from '../reducks/homes/selectors';
 import { getTags } from '../reducks/tags/selectors';
 import HomesCard from '../components/Common/HomesCard';
-import Header from '../components/Common/Header';
 
 const Search = () => {
     const parsed = queryString.parse(window.location.search);

@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchHomes, clearHomes } from '../reducks/homes/operations';
 import { getHomes } from '../reducks/homes/selectors';
 import MainImage from '../components/Common/MainImage';
 import { getTags } from '../reducks/tags/selectors';
 import { fetchTags } from '../reducks/tags/operations';
-import { push } from 'connected-react-router';
 import CategoryCard from '../components/Common/CategoryCard';
-import Header from '../components/Common/Header';
-import { LOGIN_USER_KEY } from '../API';
-import { getUser } from '../reducks/users/selectors';
 import { useHistory } from 'react-router';
 
 const Home = () => {

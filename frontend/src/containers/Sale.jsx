@@ -1,12 +1,11 @@
 import { push } from 'connected-react-router';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import SaleImage from '../components/Common/SaleImage';
 import { sellrequest } from '../reducks/request/operations';
 
 function Sale() {
     const dispatch = useDispatch();
-    const key = localStorage.getItem('LOGIN_USER_KEY');
     const [address, setAddress] = useState(''),
         [sqft, setSqft] = useState(''),
         [age_building, setAge_building] = useState('');
@@ -57,12 +56,7 @@ function Sale() {
                     <h2>Home size</h2>
                     <input onChange={inputSqft} type="text" name="sqft" placeholder="Enter your home size (sq. ft.)" />
                     <h2>Year built</h2>
-                    <input
-                        onChange={inputAge_Building}
-                        type="number"
-                        name="age_building"
-                        placeholder="1954"
-                    />
+                    <input onChange={inputAge_Building} type="number" name="age_building" placeholder="1954" />
                     <br />
                     <input onClick={submitButton} type="submit" name="" id="" />
                 </div>

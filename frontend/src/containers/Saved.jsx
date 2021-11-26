@@ -5,8 +5,6 @@ import { deleteSaved } from '../reducks/saved/operations';
 import { fetchFromLocalStorage } from '../reducks/saved/operations';
 import ImgFavIcon from '../assets/img/icon-fav.svg';
 
-import Header from '../components/Common/Header';
-
 const Saved = () => {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
