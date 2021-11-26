@@ -12,6 +12,8 @@ export default function CategoryCard({ tag }) {
             } else {
                 dispatch(push(`/search?tag_id=${tagId}&tag_type=${tag.type}`));
             }
+        } else {
+            dispatch(push('/signup'));
         }
     };
 
