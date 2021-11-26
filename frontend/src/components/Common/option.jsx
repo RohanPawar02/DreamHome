@@ -6,7 +6,7 @@ import { signOut } from '../../reducks/users/operations';
 import { getUser } from '../../reducks/users/selectors';
 import { push } from 'connected-react-router';
 
-function Option({ setShowOption }) {
+function Option({ setShowOption, tag }) {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
     const key = localStorage.getItem('HOME_LOGIN_USER_KEY');
@@ -36,10 +36,10 @@ function Option({ setShowOption }) {
                         <li onClick={() => dispatch(push('/saved'))} class="first">
                             Favorites
                         </li>
-                        <li onClick={() => dispatch(push('/search?tag_id=9'))}>Buy</li>
-                        <li onClick={() => dispatch(push('/sale'))}>Sell</li>
-                        <li onClick={() => dispatch(push('/search?tag_id=7'))} class="first">
-                            Rent
+                        <li onClick={() => dispatch(push(`Search?tag_id=` + 10))}>Buy a house</li>
+                        <li onClick={() => dispatch(push('/sale'))}>Sell a house </li>
+                        <li onClick={() => dispatch(push(`Search?tag_id=` + 9))} class="first">
+                            Rent a house
                         </li>
                         <li onClick={signOutButton}>Log Out</li>
                     </ul>

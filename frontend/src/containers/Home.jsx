@@ -16,7 +16,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
     const homes = getHomes(selector);
-    const key = localStorage.getItem('HOME_LOGIN_USER_KEY');
+    const key = localStorage.getItem(LOGIN_USER_KEY);
     const history = useHistory();
     useEffect(() => {
         dispatch(clearHomes());
@@ -24,11 +24,7 @@ const Home = () => {
     }, []);
     const tags = getTags(selector);
     const clickHome = homeId => {
-        if (key) {
-            dispatch(history.push(`/preview/${homeId}/`));
-        } else {
-            dispatch(push('/signup'));
-        }
+        dispatch(history.push(`/preview/${homeId}/`));
     };
 
     useEffect(() => {

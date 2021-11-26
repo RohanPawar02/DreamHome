@@ -25,11 +25,10 @@ function MainImage() {
                 </div>
                 <article class="text">
                     <h1>
-                        Find the perfect home
+                        Discover a place <br /> you’ll love to live
                     </h1>
                     <h4>
-                        We have the most complete source of homes <br />
-                        for sale & real estate to help you move
+                        Check out the latest homes <br /> based on your personal preferences.
                     </h4>
                 </article>
             </section>
