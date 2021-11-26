@@ -24,7 +24,11 @@ const Home = () => {
     }, []);
     const tags = getTags(selector);
     const clickHome = homeId => {
-        dispatch(history.push(`/preview/${homeId}/`));
+        if (key) {
+            dispatch(history.push(`/preview/${homeId}/`));
+        } else {
+            dispatch(push('/signup'));
+        }
     };
 
     useEffect(() => {
