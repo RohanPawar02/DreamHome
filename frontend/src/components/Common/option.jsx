@@ -36,9 +36,9 @@ function Option({ setShowOption, tag }) {
                         <li onClick={() => dispatch(push('/saved'))} class="first">
                             Favorites
                         </li>
-                        <li onClick={() => dispatch(push(`Search?tag_id=` + 10))}>Buy a house</li>
+                        <li onClick={() => dispatch(push(`Search?tag_id=` + 3))}>Buy a house</li>
                         <li onClick={() => dispatch(push('/sale'))}>Sell a house </li>
-                        <li onClick={() => dispatch(push(`Search?tag_id=` + 9))} class="first">
+                        <li onClick={() => dispatch(push(`Search?tag_id=` + 1))} class="first">
                             Rent a house
                         </li>
                         <li onClick={signOutButton}>Log Out</li>
