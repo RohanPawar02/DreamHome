@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import queryString from 'query-string';
 import { fetchHomes, clearHomes } from '../reducks/homes/operations';
 import { getHomes } from '../reducks/homes/selectors';
-import { getTags } from '../reducks/tags/selectors';
 import HomesCard from '../components/Common/HomesCard';
+import { fetchFavourites } from '../reducks/favoutite/operations';
+import { getFavourites } from '../reducks/favoutite/selectors';
 
 const Search = () => {
     const parsed = queryString.parse(window.location.search);
@@ -13,7 +14,7 @@ const Search = () => {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
     const homes = getHomes(selector);
-    const tags = getTags(selector);
+    const favourite = getFavourites(selector);
 
     useEffect(() => {
         if (parsed.search !== undefined) {
@@ -28,6 +29,7 @@ const Search = () => {
         if (search != null || tagId != null) {
             dispatch(clearHomes());
             dispatch(fetchHomes(search, tagId));
+            dispatch(fetchFavourites());
         }
     }, [search, tagId]);
 
@@ -38,7 +40,7 @@ const Search = () => {
                     {<h4>House for {parsed.tag_type ? parsed.tag_type : ''} Near me</h4>}
                     <ul class="images">
                         {homes.map(home => (
-                            <HomesCard home={home} />
+                            <HomesCard home={home} favourite={favourite} />
                         ))}
                     </ul>
                 </div>

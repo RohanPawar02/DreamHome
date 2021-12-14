@@ -765,7 +765,7 @@ footer {
     padding: 12px 0 0 20px;
 }
 
-.main2 .signin input[type='text'] {
+.main2 .signin input[type='email'] {
     margin: 2% 0 0 7%;
     width: 80%;
     padding: 2% 0% 2% 5%;

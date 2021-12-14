@@ -6,7 +6,6 @@ import ImgCloseIcon from '../assets/img/icon-close.svg';
 import MainImage from '../components/Common/MainImage';
 import { push } from 'connected-react-router';
 
-
 function SignUp() {
     const dispatch = useDispatch();
 
@@ -53,7 +52,8 @@ function SignUp() {
                     <p>Password</p>
                     <input type="text" onChange={inputPassword} name="" placeholder="Enter Password" id="" />
                     <button onClick={signUpButton} class="signup-button">
-                        Sign up
+                        {' '}
+                        <a href="/">Sign up</a>
                     </button>
                     <div class="foot"></div>
                     <button class="text" onClick={() => dispatch(push('/signin'))}>

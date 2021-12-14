@@ -3,7 +3,7 @@ const initialState = {
         list: [],
         hasNext: true
     },
-    saved: {
+    favourites: {
         list: []
     },
     tags: {

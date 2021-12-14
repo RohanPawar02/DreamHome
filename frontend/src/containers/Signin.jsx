@@ -1,33 +1,44 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { signIn } from '../reducks/users/operations';
 import ImgLogoIcon from '../assets/img/icon-logo.svg';
 import ImgCloseIcon from '../assets/img/icon-close.svg';
 import MainImage from '../components/Common/MainImage';
-import { push } from 'connected-react-router';
+import { useHistory } from 'react-router';
+import { getUser } from '../reducks/users/selectors';
 
 function Signin() {
     const dispatch = useDispatch();
+    let history = useHistory();
+    const selector = useSelector(state => state);
+    const errors = getUser(selector).errors;
+
+    const initialValues = {
+        email: '',
+        password: ''
+    };
+
+    const [values, setValues] = useState(initialValues);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleInputChange = e => {
+        const { name, value } = e.target;
+
+        setValues({
+            ...values,
+            [name]: value
+        });
+    };
+
+    const signInButton = async () => {
+        setIsLoading(true);
+        await dispatch(signIn(values, () => history.push('/')));
+        setIsLoading(false);
+        // history.push("/");
+    };
 
     const closeButton = () => {
-        dispatch(push('/'));
-    };
-
-    const [email, setEmail] = useState(''),
-        [password, setPassword] = useState('');
-
-    const inputEmail = event => {
-        setEmail(event.target.value);
-    };
-
-    const inputPassword = event => {
-        setPassword(event.target.value);
-    };
-
-    const signInButton = () => {
-        dispatch(signIn(email, password));
-        setEmail('');
-        setPassword('');
+        dispatch(() => history.push('/'));
     };
 
     return (
@@ -39,17 +50,22 @@ function Signin() {
                     <img class="logo" src={ImgLogoIcon} alt="" />
                     <p class="head">Sign in</p>
                     <p>Email</p>
-                    <input type="text" onChange={inputEmail} name="" placeholder="Enter email" value={email} id="" />
+                    <input
+                        placeholder="Type your email"
+                        name="email"
+                        type="email"
+                        value={values.email}
+                        onChange={handleInputChange}
+                    />
                     <p>Password</p>
                     <input
+                        placeholder="Type your password"
+                        name="password"
                         type="password"
-                        onChange={inputPassword}
-                        name=""
-                        placeholder="Enter Password"
-                        value={password}
-                        id=""
+                        value={values.password}
+                        onChange={handleInputChange}
                     />
-                    <button onClick={signInButton}>Sign in</button>
+                    <button type="button" onClick={signInButton}>{`${isLoading ? 'Logging In' : 'Login'}`}</button>
                     <a class="joinus" href="/signup">
                         JOIN US
                     </a>

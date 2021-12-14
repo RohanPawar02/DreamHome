@@ -3,7 +3,7 @@ import { connectRouter, routerMiddleware } from 'connected-react-router';
 import thunk from 'redux-thunk';
 
 import { HomesReducer } from '../homes/reducers';
-import { SavedReducer } from '../saved/reducers';
+import { FavouritesReducer } from '../favoutite/reducers';
 import { TagsReducer } from '../tags/reducers';
 import { UserReducer } from '../users/reducers';
 
@@ -12,7 +12,7 @@ export default function createStore(history) {
         combineReducers({
             router: connectRouter(history),
             homes: HomesReducer,
-            saved: SavedReducer,
+            favourites: FavouritesReducer,
             tags: TagsReducer,
             user: UserReducer
         }),

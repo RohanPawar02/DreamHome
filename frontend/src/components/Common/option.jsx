@@ -17,7 +17,6 @@ function Option({ setShowOption }) {
     const signOutButton = () => {
         dispatch(signOut());
         setCheckUser(false);
-        dispatch(push('/signin'));
     };
 
     useEffect(() => {
@@ -53,7 +52,10 @@ function Option({ setShowOption }) {
                               })
                             : ''}
 
-                        <li onClick={signOutButton}>Log Out</li>
+                        <li onClick={signOutButton}>
+                            {' '}
+                            <a href="/">Log Out</a>
+                        </li>
                     </ul>
                 </div>
             </div>

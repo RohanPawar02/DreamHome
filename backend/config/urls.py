@@ -23,5 +23,7 @@ urlpatterns = [
     path('tags/', include('apps.tags.urls')),
     path('users/', include('apps.users.urls')),
     path('sellrequest/', include('apps.sellrequests.urls')),
+    path('favourites/', include('apps.favourites.urls')),
+
 
 ]

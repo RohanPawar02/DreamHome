@@ -1,42 +1,47 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSaved } from '../reducks/saved/selectors';
-import { deleteSaved } from '../reducks/saved/operations';
-import { fetchFromLocalStorage } from '../reducks/saved/operations';
+import { getFavourites } from '../reducks/favoutite/selectors';
+import { getHomes } from '../reducks/homes/selectors';
+import { deleteFavourites } from '../reducks/favoutite/operations';
+import { fetchFavourites } from '../reducks/favoutite/operations';
 import ImgFavIcon from '../assets/img/icon-fav.svg';
+import { push } from 'connected-react-router';
 
 const Saved = () => {
     const dispatch = useDispatch();
     const selector = useSelector(state => state);
-    const saved = getSaved(selector);
-    console.log(saved);
+    const favourites = getFavourites(selector);
+    console.log('dsdsd', favourites);
     useEffect(() => {
-        dispatch(fetchFromLocalStorage());
+        dispatch(fetchFavourites());
     }, []);
     return (
         <div>
-            {console.log(saved)}
             <section class="buy">
                 <div class="head">
                     <h4>Saved Houses</h4>
                     <ul class="images">
-                        {saved &&
-                            saved.map(save => (
+                        {favourites &&
+                            favourites.map(favourite => (
                                 <li class="box">
                                     <img
                                         class="fav"
                                         onClick={() => {
-                                            dispatch(deleteSaved(save.id));
+                                            dispatch(deleteFavourites(favourite.id));
                                         }}
                                         src={ImgFavIcon}
                                         alt=""
                                     />
-                                    <img src={'https://res.cloudinary.com/dwzjr9dg5/' + save.main_image} alt="" />
-                                    <h3>{save.price}</h3>
+                                    <img
+                                        src={'https://res.cloudinary.com/dwzjr9dg5/' + favourite.home.main_image}
+                                        alt=""
+                                    />
+                                    {console.log(favourite.main_image)}
+                                    <h3>{favourite.price}</h3>
                                     <p>
-                                        {save.layout} 1,800 sqft <br />
+                                        {favourite.layout} 1,800 sqft <br />
                                         <br />
-                                        {save.state}, {save.address}
+                                        {favourite.state}, {favourite.address}
                                     </p>
                                 </li>
                             ))}

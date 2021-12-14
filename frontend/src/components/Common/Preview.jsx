@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import API from '../../API';
 import ImgIconBack from '../../assets/img/icon-back.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
 import { push } from 'connected-react-router';
 

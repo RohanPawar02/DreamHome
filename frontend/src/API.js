@@ -101,7 +101,7 @@ export default class API {
             query.append('search', search);
         }
 
-        if (query.toString() != '') {
+        if (query.toString() !== '') {
             url += '?' + query.toString();
         }
 
@@ -139,5 +139,34 @@ export default class API {
                 throw new Error(error);
             });
         return tags;
+    };
+
+    getFavourites = async () => {
+        const favourites = await api
+            .get('/favourites/', { requireToken: true })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                throw new Error(error);
+            });
+        return favourites;
+    };
+
+    addFavourites = async addFavouriteBody => {
+        //{homeId: homeId} = {homeId}
+        const savedPost = await api
+            .post('/favourites/add/', addFavouriteBody, { requireToken: true })
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                throw new Error(error);
+            });
+        return savedPost;
+    };
+
+    deleteFavourites = id => {
+        return api.delete(`favourites/delete/${id}`, { requireToken: true });
     };
 }

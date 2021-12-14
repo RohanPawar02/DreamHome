@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'apps.home',
     'apps.users',
     'apps.sellrequests',
+    'apps.favourites',
     'cloudinary',
     'django_filters',
 ]
