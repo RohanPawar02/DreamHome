@@ -48,9 +48,9 @@ function SignUp() {
                     <p>Username</p>
                     <input type="text" onChange={inputUserName} name="" placeholder="Enter email" id="" />
                     <p>Email</p>
-                    <input type="text" onChange={inputEmail} name="" placeholder="Enter email" id="" />
+                    <input type="email" onChange={inputEmail} name="" placeholder="Enter email" id="" />
                     <p>Password</p>
-                    <input type="text" onChange={inputPassword} name="" placeholder="Enter Password" id="" />
+                    <input type="password" onChange={inputPassword} name="" placeholder="Enter Password" id="" />
                     <button onClick={signUpButton} class="signup-button">
                         {' '}
                         <a href="/">Sign up</a>

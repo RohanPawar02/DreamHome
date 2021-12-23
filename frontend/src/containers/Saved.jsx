@@ -36,12 +36,12 @@ const Saved = () => {
                                         src={'https://res.cloudinary.com/dwzjr9dg5/' + favourite.home.main_image}
                                         alt=""
                                     />
-                                    {console.log(favourite.main_image)}
+                                    {console.log(favourite.home.main_image)}
                                     <h3>{favourite.price}</h3>
                                     <p>
-                                        {favourite.layout} 1,800 sqft <br />
+                                        {favourite.home.layout} 1,800 sqft <br />
                                         <br />
-                                        {favourite.state}, {favourite.address}
+                                        {favourite.home.state}, {favourite.home.address}
                                     </p>
                                 </li>
                             ))}

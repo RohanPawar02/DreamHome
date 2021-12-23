@@ -28,8 +28,8 @@ const Router = () => {
                 <Route exact path={'/'} component={Home} />
                 <Route exact path={'/search'} component={token ? Search : Signin} />
                 <Route exact path={'/saved'} component={token ? Saved : Signin} />
-                <Route exact path={'/signin'} component={Signin} />
-                <Route exact path={'/signup'} component={SignUp} />
+                <Route exact path={'/signin'} component={token ? Home : Signin} />
+                <Route exact path={'/signup'} component={token ? Home : SignUp} />
                 <Route exact path={'/sale'} component={token ? Sale : Signin} />
                 <Route exact path={'/preview/:id/'} component={token ? Preview : Signin} />
                 <Route exact path={'/thankyou'} component={ThankYou} />

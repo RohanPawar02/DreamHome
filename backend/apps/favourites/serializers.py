@@ -7,6 +7,7 @@ class FavouriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Favourite
         fields = '__all__'
+       # depth = 1
 
 class ListFavouriteSerializer(serializers.ModelSerializer):
     user = UserSerializer(many = False, read_only = True)

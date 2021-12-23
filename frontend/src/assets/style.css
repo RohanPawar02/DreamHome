@@ -765,6 +765,15 @@ footer {
     padding: 12px 0 0 20px;
 }
 
+.main2 .signin input[type='text'] {
+    margin: 2% 0 0 7%;
+    width: 80%;
+    padding: 2% 0% 2% 5%;
+    font-size: 90%;
+    background-color: rgba(237, 234, 234, 0.61);
+    border: 0;
+}
+
 .main2 .signin input[type='email'] {
     margin: 2% 0 0 7%;
     width: 80%;
@@ -847,7 +856,7 @@ footer {
 }
 
 .main2 .signin a.joinus {
-    font-size: 13px;
+    font-size: 12px;
     margin: auto 40.4%;
 }
 

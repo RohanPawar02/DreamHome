@@ -35,7 +35,7 @@ export const signUp = (user_name, email, password) => {
     };
 };
 // values = {email:'', password: ''}
-export const signIn = ({ email, password }) => {
+export const signIn = ({ email, password }, onSuccess) => {
     return async dispatch => {
         // Validation
         if (email === '' || password === '') {
@@ -48,7 +48,8 @@ export const signIn = ({ email, password }) => {
             .then(user => {
                 dispatch(signInAction(user));
                 localStorage.setItem(LOGIN_USER_KEY, JSON.stringify(user));
-                dispatch(push('/'));
+                console.log(localStorage.getItem(LOGIN_USER_KEY));
+                onSuccess();
             })
             .catch(error => {
                 alert('Failed to connect API to add a post');

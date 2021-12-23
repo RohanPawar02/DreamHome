@@ -34,7 +34,7 @@ function Signin() {
         setIsLoading(true);
         await dispatch(signIn(values, () => history.push('/')));
         setIsLoading(false);
-        // history.push("/");
+        //history.push('/sign');
     };
 
     const closeButton = () => {

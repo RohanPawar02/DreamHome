@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from '../../reducks/users/operations';
 import { push } from 'connected-react-router';
 import { getTags } from '../../reducks/tags/selectors';
+import { fetchTags } from '../../reducks/tags/operations';
 
 function Option({ setShowOption }) {
     const dispatch = useDispatch();
@@ -24,6 +25,10 @@ function Option({ setShowOption }) {
             setCheckUser(true);
         }
     }, [key]);
+
+    useEffect(() => {
+        dispatch(fetchTags());
+    }, []);
     return (
         <>
             <div class="main2" onClick={() => setShowOption(false)}>
